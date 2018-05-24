@@ -25,15 +25,21 @@ An encoding of a rule starts with a semi-colon, followed by five colon-separated
 
 Hence the transformation (`1`, `0`) -> (`1`, Left, `4`) would be represented by the encoding `;1:0:1:0:1111`
 
-An encoding of _T_'s instruction table is a concatenation of the individual encodings of the rules in the table.  For exmaple:
+An encoding of _T_'s instruction table is a concatenation of the individual encodings of the rules in the table.  For example:
 ```aidl
 ;1:0:0:1:1;1:1:1:1:1;1:_:_:0:11;11:0:1:0:1111;11:1:0:0:111;111:0:1:0:1111;111:1:0:0:111;111:_:1:0:1111;1111:0:0:0:1111;1111:1:1:0:1111
 ```
 
-Now, _i_ should use the alphabet {0, 1} and can largely be left as it is.  An empty cells in _i_ should be represented by "_", however
+Now, the input _i_ should use the alphabet {0, 1} and can largely be left as it is.  An empty cells in _i_ should be represented by "_", however
 
 
 Now, to simulate the operations of Turing machine _T_ upon input _i_, run with the following command:
 ```$xslt
 sbt "run {instruction_table_for_T} {i}"
 ```
+
+# A Note on the Code
+
+This wasn't intended to be the most elegant simulation of a Universal Turing Machine.
+
+Rather this was an attempt by me to see if I could actually come up with an instruction table for such a machine.
